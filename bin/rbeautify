@@ -216,7 +216,5 @@ module RBeautify
    end # main
 end # module RBeautify
 
-# if launched as a standalone program, not loaded as a module
-if __FILE__ == $0
-   RBeautify.main
-end
+# always run it, since this is the binary file
+RBeautify.main
