@@ -22,7 +22,7 @@
  ***************************************************************************/
 =end
 
-PVERSION = "Version 2.9, 10/24/2008"
+PVERSION = "modified from Version 2.9, 10/24/2008"
 
 module RBeautify
 
@@ -180,7 +180,9 @@ module RBeautify
       end
       error = (tab != 0)
       STDERR.puts "Error: indent/outdent mismatch: #{tab}." if error
-      return output.join("\n") + "\n",error
+      # attempt to accomodate for DOS style line endings...
+      line_joiner = source.include?("\r\n") ? "\r\n" : "\n"
+      return output.join(line_joiner) + line_joiner,error
    end # beautify_string
 
    def RBeautify.beautify_file(path)
