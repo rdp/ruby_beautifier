@@ -192,13 +192,13 @@ module RBeautify
          dest,error = beautify_string(source,"stdin")
          print dest
       else # named file source
-         source = File.read(path)
+         source = File.open(path, 'rb') do |file| file.read; end
          dest,error = beautify_string(source,path)
          if(source != dest)
             # make a backup copy
-            File.open(path + "~","w") { |f| f.write(source) }
+            File.open(path + "~","wb") { |f| f.write(source) }
             # overwrite the original
-            File.open(path,"w") { |f| f.write(dest) }
+            File.open(path,"wb") { |f| f.write(dest) }
          end
       end
       return error
