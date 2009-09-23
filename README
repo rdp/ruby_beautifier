@@ -4,11 +4,11 @@ What it does:
 
 you run rbeautify on poorly-aligned code, like
 
-def go
-if 3
-stuff
-end
-end
+    def go
+    if 3
+    stuff
+    end
+    end
 
 and it automatically converts said code to
 
@@ -25,10 +25,11 @@ up the code so you can see scopes, and warning you where it sees mismatches [sim
 Many thanks to the original author [I just gemif-ied his existing script].
 http://www.arachnoid.com/ruby/rubyBeautifier.html
 
-Synopsis:
+Installation:
 gem sources -a http://gems.github.com
 sudo gem install rogerdpack-rbeautify
 
+Usage:
 rbeautify <script name>
 
 Feedback welcome rogerdpack on github
